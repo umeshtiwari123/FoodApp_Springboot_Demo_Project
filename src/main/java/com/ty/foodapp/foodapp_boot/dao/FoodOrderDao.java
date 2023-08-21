@@ -24,7 +24,7 @@ public class FoodOrderDao {
 
 	public FoodOrder getFoodOrderById(int id) {
 		Optional<FoodOrder> optional = repository.findById(id);
-		if (optional.isEmpty()) {
+		if (!optional.isPresent()) {
 			return null;
 		}
 		return optional.get();

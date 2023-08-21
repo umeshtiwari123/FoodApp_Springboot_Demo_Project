@@ -23,7 +23,7 @@ public class ItemsDao {
 
 	public Items getItemsById(int id) {
 		Optional<Items> optional = repository.findById(id);
-		if (optional.isEmpty()) {
+		if (!optional.isPresent()) {
 			return null;
 		}
 		return optional.get();

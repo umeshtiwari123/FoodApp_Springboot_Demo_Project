@@ -24,7 +24,7 @@ public class UserDao {
 
 	public User getUserById(int id) {
 		Optional<User> optional = repository.findById(id);
-		if (optional.isEmpty()) {
+		if (!optional.isPresent()) {
 			return null;
 		}
 		return optional.get();
