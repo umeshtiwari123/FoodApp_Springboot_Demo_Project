@@ -47,11 +47,7 @@ public class UserController {
 			MediaType.APPLICATION_ATOM_XML_VALUE }, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ResponseStructure<User>> updateUser(@RequestBody User user, @RequestParam int id) {
 		ResponseEntity<ResponseStructure<User>> user1 = userService.getUserById(id);
-		if (user1 != null) {
-			return userService.saveUser(user);
-		} else {
-			return null;
-		}
+			return userService.updateUser(user, id);
 	}
 
 	@ApiOperation(value = "Get User", notes = "It is used to get the user")
