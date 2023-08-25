@@ -45,13 +45,10 @@ public class ProductController {
 			MediaType.APPLICATION_ATOM_XML_VALUE }, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ResponseStructure<Product>> updateProduct(@RequestBody Product product,
 			@RequestParam int id) {
-		ResponseEntity<ResponseStructure<Product>> product1 = productService.getProductById(id);
-		if (product1 != null) {
-			return productService.saveProduct(product);
-		} else {
-			return null;
-		}
+	ResponseEntity<ResponseStructure<Product>> product1 = productService.getProductById(id);
+		return productService.updateProduct(product,id);
 	}
+	
 
 	@ApiOperation(value = "Get Product", notes = "It is used to Get Product from database")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Created"),
